@@ -1,0 +1,25 @@
+<template>
+    <div>
+        <lightning-card class="slds-p-around-small">
+            <lightning-input
+                value={userName}
+                onchange={handleChange}
+                type="search"
+                label="Search"
+            >
+            </lightning-input>
+            <p>your userName is: {userName}</p>
+        </lightning-card>
+
+        <lightning-card>
+            <lightning-input
+                value={calculatedAge}
+                onchange={handleAge}
+                type="search"
+                label="Age"
+            >
+            </lightning-input>
+            <p>your calulated age is: {calculatedAge}</p>
+        </lightning-card>
+    </div>
+</template>

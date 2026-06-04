@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Book_Name__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This will have book name</description>
+    <externalId>false</externalId>
+    <inlineHelpText>add book name</inlineHelpText>
+    <label>Book Name</label>
+    <length>50</length>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

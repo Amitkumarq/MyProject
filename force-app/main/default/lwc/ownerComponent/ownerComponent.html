@@ -1,0 +1,14 @@
+<template>
+    owner component
+    <!-- passing data into container component -->
+    <lightning-card title="card composition">
+        <c-container-component
+            products-found={productsFound}
+            product-list={productList}
+        ></c-container-component>
+        <lightning-button
+            label="Call Child Method"
+            onclick={callChildMethod}
+        ></lightning-button>
+    </lightning-card>
+</template>

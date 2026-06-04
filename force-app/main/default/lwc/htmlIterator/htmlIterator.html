@@ -1,0 +1,30 @@
+<!-- <template>
+    <ul class="slds-card">
+        <template for:each={todoItem} for:item="item">
+            <li key={item.Id}>
+                'Id:' = {item.Id} 'Task:' = {item.task} 'priority:' =
+                {item.priority}
+            </li>
+        </template>
+    </ul>
+</template> -->
+
+<template>
+    <div class="slds-size_2-of-4">
+        <div
+            class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"
+        >
+            Basic Carousel
+            <lightning-carousel>
+                <template iterator:item={todoItem}>
+                    <lightning-carousel-image
+                        key={item.value.Id}
+                        header={item.value.task}
+                        description={item.value.priority}
+                    >
+                    </lightning-carousel-image>
+                </template>
+            </lightning-carousel>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card title="Parent to Child Communication">
+            child name is: {childObj.name} </br>
+             child age is: {childObj.age} </br>
+            city is: {childObj.city}
+            <c-child-com-to-parent onmyevent={handleEvent}>
+            </c-child-com-to-parent>
+        </lightning-card>
+    </div>
+</template>
