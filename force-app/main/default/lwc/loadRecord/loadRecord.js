@@ -1,7 +1,8 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class LoadRecord extends LightningElement {
-    recordId = '500gL00000v3J5JQAU';
+    @api recordId;
     objectApiName = 'Case';
     fields = ['CaseNumber', 'Priority', 'Status'];
+    mode = 'readonly';
 }
