@@ -1,0 +1,16 @@
+<template>
+    <template if:true={caseVar.data}>
+        <lightning-card title="Case Details">
+            <div class="slds-p-around_medium">
+                <p><strong>Case Number:</strong> {caseNumber}</p>
+                <p><strong>Origin:</strong> {origin}</p>
+                <p><strong>Reason:</strong> {reason}</p>
+                <p><strong>Status:</strong> {status}</p>
+            </div>
+        </lightning-card>
+    </template>
+
+    <template if:true={caseVar.error}>
+        <p style="color: red">Error loading case.</p>
+    </template>
+</template>
