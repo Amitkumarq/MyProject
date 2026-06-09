@@ -1,14 +1,29 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
+import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+
 import CASE_OBJECT from '@salesforce/schema/Case';
 import SUBJECT from '@salesforce/schema/Case.Subject';
 import PRIORITY from '@salesforce/schema/Case.Priority';
 import DESCRIPTION from '@salesforce/schema/Case.Description';
+import RECORDID from '@salesforce/schema/Case.RecordTypeId';
 
 export default class CustomCaseCreator extends LightningElement {
     subject = '';
     priority = '';
     description = '';
+    recordTypeId = '';
+
+    // record type Id
+    @wire(getObjectInfo, { objectApiName: CASE_OBJECT })
+    caseInfo({ data, error }) {
+        if (data) {
+            this.recordTypeId = data.defaultRecordTypeId;
+            console.log('Default Record Type Id:', this.recordTypeId);
+        } else {
+            console.log('Something went wrong', error);
+        }
+    }
 
     get options() {
         return [
@@ -36,6 +51,7 @@ export default class CustomCaseCreator extends LightningElement {
         fields[SUBJECT.fieldApiName] = this.subject;
         fields[PRIORITY.fieldApiName] = this.priority;
         fields[DESCRIPTION.fieldApiName] = this.description;
+        fields[RECORDID.fieldApiName] = this.recordTypeId;
 
         // Configure your recordInput object with the object and field API names
         const recordInput = { apiName: CASE_OBJECT.objectApiName, fields };
@@ -46,7 +62,9 @@ export default class CustomCaseCreator extends LightningElement {
             console.log('case has been created' + JSON.stringify(caseRec));
         } catch (error) {
             // Handle error
-            console.log('Something went wrong' + error);
+            console.log(
+                'Something went wrong during case creation' + error.body.message
+            );
         }
     }
 }
