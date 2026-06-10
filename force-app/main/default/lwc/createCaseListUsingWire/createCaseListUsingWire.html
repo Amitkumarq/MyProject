@@ -1,0 +1,16 @@
+<template>
+    <!-- get all my cases from caseController class and display 
+     them in my LWC component using wire -->
+    <lightning-card title="10 Case FROM caseController">
+        <ul>
+            <template for:each={caseList} for:item="caseItem">
+                <li class="slds-p-around_small" key={caseItem.Id}>
+                    <b>{caseItem.Id}</b> {caseItem.Subject} {caseItem.Priority}
+                </li>
+            </template>
+        </ul>
+        <template lwc:if={errorMsg}>
+            Error loading message: {errorMsg}
+        </template>
+    </lightning-card>
+</template>
