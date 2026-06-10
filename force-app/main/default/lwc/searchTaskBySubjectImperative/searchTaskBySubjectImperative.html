@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Search Task by Subject (Imperative)">
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input
+                    type="text"
+                    label="Enter Subject"
+                    placeholder="type here..."
+                    onchange={handleSubjectChange}
+                    value={subject}
+                    required
+                ></lightning-input>
+            </div>
+
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-button
+                    variant="brand"
+                    label="Click me"
+                    onclick={searchTask}
+                    class="slds-m-left_x-medium"
+                ></lightning-button>
+            </div>
+
+            <template if:true={taskList}>
+                <table class="slds-table slds-p-around_medium lgc-bg">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>ActivityDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={taskList} for:item="task">
+                            <tr key={task.Id}>
+                                <td>{task.Id}</td>
+                                <td>{task.Subject}</td>
+                                <td>{task.Status}</td>
+                                <td>{task.Priority}</td>
+                                <td>{task.ActivityDate}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </lightning-card>
+</template>
