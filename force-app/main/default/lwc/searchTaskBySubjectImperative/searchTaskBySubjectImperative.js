@@ -7,7 +7,10 @@ export default class SearchTaskBySubjectImperative extends LightningElement {
     errorMessage;
 
     handleSubjectChange(event) {
-        this.subject = event.target.value;
+        if (event.target.value === '') {
+            return;
+        }
+        this.subject = event?.target?.value;
     }
 
     async searchTask() {
