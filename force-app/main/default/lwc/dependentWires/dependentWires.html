@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="dependent Wire">
+        {recordId} {accountName}
+
+        <template if:true={taskFound} for:each={taskList} for:item="taskRec">
+            <div key={taskRec.Id}>
+                {taskRec.Id} {taskRec.description} {taskRec.Subject}
+            </div>
+        </template>
+
+        <template if:true={errorMsg}>
+            something went wrong check your logic
+        </template>
+    </lightning-card>
+</template>
